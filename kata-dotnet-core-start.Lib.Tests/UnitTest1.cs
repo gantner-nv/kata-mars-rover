@@ -39,7 +39,8 @@ public class UnitTest1
     private string FizzBuzz(int i)
     {
         if (i % 3 == 0)
-            return "FIZZ";  
+            return "FIZZ";
+              
         return $"{i}";
     }
 }
