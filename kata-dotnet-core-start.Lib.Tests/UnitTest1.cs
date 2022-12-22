@@ -35,12 +35,25 @@ public class UnitTest1
         // Assert
         Assert.Equal(output , "FIZZ");
     }
+    
+    [Fact]
+    public void Output_ShouldBe_Fizz_If_NumberIdOfModular_Of_5()
+    {
+        // Act
+        var output = FizzBuzz(5);
+
+        // Assert
+        Assert.Equal(output , "BUZZ");
+    }
 
     private string FizzBuzz(int i)
     {
         if (i % 3 == 0)
             return "FIZZ";
-              
+
+        if (i == 5)
+            return "BUZZ";
+        
         return $"{i}";
     }
 }
