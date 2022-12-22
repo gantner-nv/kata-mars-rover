@@ -2,26 +2,18 @@ namespace kata_dotnet_core_start.Lib.Tests;
 
 public class UnitTest1
 {
-    [Fact]
-    public void Output_ShouldBe_SameAsInput()
+    [Theory]
+    [InlineData(1)]
+    [InlineData(2)]
+    public void Given_NumberIsNotMultiple_Of_3_And_5_Then_Output_Is_SameNumber(int input)
     {
         // Act
-        var output = FizzBuzz(1);
+        var output = FizzBuzz(input);
 
         // Assert
-        Assert.Equal(output , "1");
+        Assert.Equal(output , input.ToString());
     }
-    
-    [Fact]
-    public void Output_ShouldBe_SameAsInput_2()
-    {
-        // Act
-        var output = FizzBuzz(2);
 
-        // Assert
-        Assert.Equal(output , "2");
-    }
-    
     [Theory]
     [InlineData(6)]
     [InlineData(9)]
@@ -39,7 +31,7 @@ public class UnitTest1
     [InlineData(5)]
     [InlineData(10)]
     [InlineData(20)]
-    public void Output_ShouldBe_Fizz_If_NumberIsModular_Of_5_And_Not_Contains_5(int input)
+    public void Given_NumberIsMultiple_Of_5_Then_Output_Is_BUZZ(int input)
     {
         // Act
         var output = FizzBuzz(input);
@@ -51,7 +43,7 @@ public class UnitTest1
     [Theory]
     [InlineData(15)]
     [InlineData(45)]
-    public void Output_ShouldBe_FizzBuzz_If_NumberIdOfModular_Of_3_or_5(int input)
+    public void Given_NumberIsMultiple_Of_3_And_5_Then_Output_Is_FIZZBUZZ(int input)
     {
         // Act
         var output = FizzBuzz(input);
@@ -90,13 +82,18 @@ public class UnitTest1
         if (IsMultipleOf3(number))
             output.Add( "FIZZ"); 
 
-        if (number % 5 == 0)
+        if (IsMultipleOf5(number))
             output.Add( "BUZZ"); 
         
         if(output.Any())
             return string.Join(string.Empty, output);
         
         return $"{number}";
+    }
+
+    private static bool IsMultipleOf5(int number)
+    {
+        return number % 5 == 0;
     }
 
     private static bool IsMultipleOf3(int number)
