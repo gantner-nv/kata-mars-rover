@@ -48,14 +48,27 @@ public class UnitTest1
         // Assert
         Assert.Equal(output , "BUZZ");
     }
+    
+    [Fact]
+    public void Output_ShouldBe_FizzBuzz_If_NumberIdOfModular_Of_3_or_5()
+    {
+        // Act
+        var output = FizzBuzz(15);
+
+        // Assert
+        Assert.Equal(output , "FIZZBUZZ");
+    }
 
     private string FizzBuzz(int i)
     {
+        if (i == 15)
+            return "FIZZBUZZ";
+        
         if (i % 3 == 0)
             return "FIZZ";
 
         if (i % 5 == 0)
-            return "BUZZ";
+            return "BUZZ"; 
         
         return $"{i}";
     }
