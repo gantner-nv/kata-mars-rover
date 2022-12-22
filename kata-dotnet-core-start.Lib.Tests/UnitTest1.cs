@@ -26,7 +26,7 @@ public class UnitTest1
     [InlineData(6)]
     [InlineData(9)]
     [InlineData(12)]
-    public void Output_ShouldBe_Fizz_If_NumberIsModular_Of_3_And_Not_Contains_3(int input)
+    public void Given_NumberIsMultiple_Of_3_Then_Output_Is_FIZZ(int input)
     {
         // Act
         var output = FizzBuzz(input);
@@ -80,22 +80,27 @@ public class UnitTest1
     //     Assert.Equal(output, "FIZZFIZZ");
     // }
     
-    private string FizzBuzz(int i)
+    private string FizzBuzz(int number)
     {
         var output = new List<string>();
         
         // if (i.ToString().Contains("3"))
         //     output.Add( "FIZZ");
         
-        if (i % 3 == 0)
+        if (IsMultipleOf3(number))
             output.Add( "FIZZ"); 
 
-        if (i % 5 == 0)
+        if (number % 5 == 0)
             output.Add( "BUZZ"); 
         
         if(output.Any())
             return string.Join(string.Empty, output);
         
-        return $"{i}";
+        return $"{number}";
+    }
+
+    private static bool IsMultipleOf3(int number)
+    {
+        return number % 3 == 0;
     }
 }
