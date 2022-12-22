@@ -21,9 +21,25 @@ public class UnitTest1
         // Assert
         Assert.Equal(output , "2");
     }
+    
+    [Theory]
+    [InlineData(3)]
+    [InlineData(6)]
+    [InlineData(9)]
+    [InlineData(15)]
+    public void Output_ShouldBe_Fizz_If_NumberIdOfModular_Of_3(int input)
+    {
+        // Act
+        var output = FizzBuzz(input);
+
+        // Assert
+        Assert.Equal(output , "FIZZ");
+    }
 
     private string FizzBuzz(int i)
     {
+        if (i % 3 == 0)
+            return "FIZZ";  
         return $"{i}";
     }
 }
