@@ -62,6 +62,16 @@ public class UnitTest1
         Assert.Equal(output , "FIZZBUZZ");
     }
 
+    [Fact]
+    public void Output_Should_Fizz_If_NumberContains_3()
+    {
+        // Act
+        var output = FizzBuzz(13);
+        
+        // Assert
+        Assert.Equal(output, "FIZZ");
+    }
+    
     private string FizzBuzz(int i)
     {
         if (i % 5 == 0 && i % 3 == 0)
@@ -72,6 +82,9 @@ public class UnitTest1
 
         if (i % 5 == 0)
             return "BUZZ"; 
+        
+        if (i.ToString().Contains("3"))
+            return "FIZZ";
         
         return $"{i}";
     }
