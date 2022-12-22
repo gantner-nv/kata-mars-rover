@@ -26,7 +26,7 @@ public class UnitTest1
     [InlineData(3)]
     [InlineData(6)]
     [InlineData(9)]
-    [InlineData(15)]
+    [InlineData(12)]
     public void Output_ShouldBe_Fizz_If_NumberIdOfModular_Of_3(int input)
     {
         // Act
@@ -36,11 +36,14 @@ public class UnitTest1
         Assert.Equal(output , "FIZZ");
     }
     
-    [Fact]
-    public void Output_ShouldBe_Fizz_If_NumberIdOfModular_Of_5()
+    [Theory]
+    [InlineData(5)]
+    [InlineData(10)]
+    [InlineData(20)]
+    public void Output_ShouldBe_Fizz_If_NumberIdOfModular_Of_5(int input)
     {
         // Act
-        var output = FizzBuzz(5);
+        var output = FizzBuzz(input);
 
         // Assert
         Assert.Equal(output , "BUZZ");
@@ -51,7 +54,7 @@ public class UnitTest1
         if (i % 3 == 0)
             return "FIZZ";
 
-        if (i == 5)
+        if (i % 5 == 0)
             return "BUZZ";
         
         return $"{i}";
