@@ -11,7 +11,7 @@ public class UnitTest1
         var output = FizzBuzz(input);
 
         // Assert
-        Assert.Equal(output , input.ToString());
+        Assert.Equal(output, input.ToString());
     }
 
     [Theory]
@@ -24,9 +24,9 @@ public class UnitTest1
         var output = FizzBuzz(input);
 
         // Assert
-        Assert.Equal(output , "FIZZ");
+        Assert.Equal(output, "FIZZ");
     }
-    
+
     [Theory]
     [InlineData(5)]
     [InlineData(10)]
@@ -37,9 +37,9 @@ public class UnitTest1
         var output = FizzBuzz(input);
 
         // Assert
-        Assert.Equal(output , "BUZZ");
+        Assert.Equal(output, "BUZZ");
     }
-    
+
     [Theory]
     [InlineData(15)]
     [InlineData(45)]
@@ -49,7 +49,25 @@ public class UnitTest1
         var output = FizzBuzz(input);
 
         // Assert
-        Assert.Equal(output , "FIZZBUZZ");
+        Assert.Equal(output, "FIZZBUZZ");
+    }
+
+    [Theory]
+    [InlineData(1, "1")]
+    [InlineData(2, "2")]
+    [InlineData(11, "11")]
+    [InlineData(6, "FIZZ")]
+    [InlineData(9, "FIZZ")]
+    [InlineData(12, "FIZZ")]
+    [InlineData(5, "BUZZ")]
+    [InlineData(10, "BUZZ")]
+    [InlineData(20, "BUZZ")]
+    [InlineData(15, "FIZZBUZZ")]
+    [InlineData(45, "FIZZBUZZ")]
+    public void Given_NumberWithExpectedOutput_Then_Result_Is_Matched(int number, string expected)
+    {
+        var output = FizzBuzz(number);
+        Assert.Equal(output, expected);
     }
 
     // [Fact]
@@ -71,23 +89,23 @@ public class UnitTest1
     //     // Assert
     //     Assert.Equal(output, "FIZZFIZZ");
     // }
-    
+
     private string FizzBuzz(int number)
     {
         var output = new List<string>();
-        
+
         // if (i.ToString().Contains("3"))
         //     output.Add( "FIZZ");
-        
+
         if (IsMultipleOf3(number))
-            output.Add( "FIZZ"); 
+            output.Add("FIZZ");
 
         if (IsMultipleOf5(number))
-            output.Add( "BUZZ"); 
-        
-        if(output.Any())
+            output.Add("BUZZ");
+
+        if (output.Any())
             return string.Join(string.Empty, output);
-        
+
         return $"{number}";
     }
 
