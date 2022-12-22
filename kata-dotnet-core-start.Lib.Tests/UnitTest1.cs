@@ -23,11 +23,10 @@ public class UnitTest1
     }
     
     [Theory]
-    [InlineData(3)]
     [InlineData(6)]
     [InlineData(9)]
     [InlineData(12)]
-    public void Output_ShouldBe_Fizz_If_NumberIdOfModular_Of_3(int input)
+    public void Output_ShouldBe_Fizz_If_NumberIsModular_Of_3_And_Not_Contains_3(int input)
     {
         // Act
         var output = FizzBuzz(input);
@@ -40,7 +39,7 @@ public class UnitTest1
     [InlineData(5)]
     [InlineData(10)]
     [InlineData(20)]
-    public void Output_ShouldBe_Fizz_If_NumberIdOfModular_Of_5(int input)
+    public void Output_ShouldBe_Fizz_If_NumberIsModular_Of_5_And_Not_Contains_5(int input)
     {
         // Act
         var output = FizzBuzz(input);
@@ -51,7 +50,6 @@ public class UnitTest1
     
     [Theory]
     [InlineData(15)]
-    [InlineData(30)]
     [InlineData(45)]
     public void Output_ShouldBe_FizzBuzz_If_NumberIdOfModular_Of_3_or_5(int input)
     {
@@ -62,29 +60,41 @@ public class UnitTest1
         Assert.Equal(output , "FIZZBUZZ");
     }
 
-    [Fact]
-    public void Output_Should_Fizz_If_NumberContains_3()
-    {
-        // Act
-        var output = FizzBuzz(13);
-        
-        // Assert
-        Assert.Equal(output, "FIZZ");
-    }
+    // [Fact]
+    // public void Output_Should_Fizz_If_NumberContains_3()
+    // {
+    //     // Act
+    //     var output = FizzBuzz(13);
+    //     
+    //     // Assert
+    //     Assert.Equal(output, "FIZZ");
+    // }
+    //  
+    // [Fact]
+    // public void Output_Should_Fizz_If_NumberContains_3_and_DevideBy3()
+    // {
+    //     // Act
+    //     var output = FizzBuzz(3);
+    //     
+    //     // Assert
+    //     Assert.Equal(output, "FIZZFIZZ");
+    // }
     
     private string FizzBuzz(int i)
     {
-        if (i % 5 == 0 && i % 3 == 0)
-            return "FIZZBUZZ";
+        var output = new List<string>();
+        
+        // if (i.ToString().Contains("3"))
+        //     output.Add( "FIZZ");
         
         if (i % 3 == 0)
-            return "FIZZ";
+            output.Add( "FIZZ"); 
 
         if (i % 5 == 0)
-            return "BUZZ"; 
+            output.Add( "BUZZ"); 
         
-        if (i.ToString().Contains("3"))
-            return "FIZZ";
+        if(output.Any())
+            return string.Join(string.Empty, output);
         
         return $"{i}";
     }
