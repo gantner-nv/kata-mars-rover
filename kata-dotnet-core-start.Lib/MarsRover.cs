@@ -12,18 +12,10 @@ public class MarsRover
     {
         return new MarsRover();
     }
-}
 
-public class Position
-{
-    private Position()
+    public MarsRover MoveNorth()
     {
-        
+        CurrentPosition.MoveNorth();
+        return this;
     }
-    public int X { get; set; }
-
-    public int Y { get; set; }
-
-    public static Position Default => new Position();
-
 }
