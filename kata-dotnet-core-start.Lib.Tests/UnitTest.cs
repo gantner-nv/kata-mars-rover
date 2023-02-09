@@ -5,15 +5,11 @@ public class UnitTest
     [Fact]
     public void Rover_Has_Default_Position()
     {
-        // Arrange
-        var rover = MarsRover.Create();
-        
         // Act
-        var result =  rover.CurrentPosition;
-            
+        var rover = MarsRover.Create();
+
         // Assert
-        var expectedPosition = Position.Default;
-        Assert.Equal(expectedPosition, result);
+        Assert.Equal(Position.Default, rover.CurrentPosition);
     }
 
     [Fact]
