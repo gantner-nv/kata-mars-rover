@@ -14,23 +14,34 @@ public class Position
 
     public static Position Default => new Position();
 
-    public void MoveNorth() => X.Decrement();
-    
-    public void MoveSouth() => X.Increment();
+    public void Move(string direction)
+    {
+        switch (direction)
+        {
+            case "N":
+                X.Decrement();
+                break;
+            case "S":
+                X.Increment();
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 public class Axis : IEquatable<Axis>
 {
     private int _value;
-    
+
     private Axis(int value)
     {
         _value = value;
     }
 
     public void Increment() => _value++;
-    
-    
+
+
     public void Decrement() => _value--;
 
     public static Axis Zero => Axis.Create();

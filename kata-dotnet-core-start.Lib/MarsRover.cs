@@ -15,7 +15,7 @@ public class MarsRover
 
     public MarsRover MoveNorth()
     {
-        CurrentPosition.MoveNorth();
+        CurrentPosition.Move("N");
         return this;
     }
 }
