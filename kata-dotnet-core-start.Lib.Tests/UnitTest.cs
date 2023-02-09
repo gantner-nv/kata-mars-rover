@@ -39,4 +39,16 @@ public class UnitTest
         Assert.Equal(Axis.Create(1), result.CurrentPosition.X);
         Assert.Equal(Axis.Zero, result.CurrentPosition.Y);
     }
+
+    [Fact]
+    public void Something()
+    {
+        // Act
+        var rover = MarsRover.Create(3, 2, 'N');
+
+        // Assert
+        var expectedPosition = new Position(3,2);
+        Assert.Equal(expectedPosition, rover.CurrentPosition);
+        Assert.Equal('N', rover.CurrentDirection);
+    }
 }

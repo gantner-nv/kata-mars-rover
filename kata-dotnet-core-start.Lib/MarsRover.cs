@@ -8,7 +8,7 @@ public class MarsRover
     
     public Position CurrentPosition { get; }
 
-    public static MarsRover Create()
+    public static MarsRover Create(Position position, Direction direction)
     {
         return new MarsRover();
     }
@@ -25,3 +25,6 @@ public class MarsRover
         return this;
     }
 }
+
+
+
