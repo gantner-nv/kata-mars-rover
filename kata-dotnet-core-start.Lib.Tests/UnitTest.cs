@@ -29,4 +29,18 @@ public class UnitTest
         Assert.Equal(Axis.Create(-1), result.CurrentPosition.X);
         Assert.Equal(Axis.Zero, result.CurrentPosition.Y);
     }
+
+    [Fact]
+    public void Rover_Moved_Toward_South()
+    {
+        // Arrange
+        var rover = MarsRover.Create();
+        
+        // Act
+        var result =  rover.MoveSouth();
+        
+        // Assert
+        Assert.Equal(Axis.Create(1), result.CurrentPosition.X);
+        Assert.Equal(Axis.Zero, result.CurrentPosition.Y);
+    }
 }

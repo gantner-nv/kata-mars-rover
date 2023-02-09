@@ -18,4 +18,10 @@ public class MarsRover
         CurrentPosition.Move("N");
         return this;
     }
+
+    public MarsRover MoveSouth()
+    {
+        CurrentPosition.Move("S");
+        return this;
+    }
 }
