@@ -12,8 +12,8 @@ public class UnitTest
         var result =  rover.CurrentPosition;
             
         // Assert
-        Assert.Equal(Axis.Zero, result.X);
-        Assert.Equal(Axis.Zero, result.Y);
+        var expectedPosition = Position.Default;
+        Assert.Equal(expectedPosition, result);
     }
 
     [Fact]
